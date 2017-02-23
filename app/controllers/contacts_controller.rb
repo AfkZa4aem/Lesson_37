@@ -3,5 +3,6 @@ class ContactsController < ApplicationController
   end
 
   def create
+    render plain: params[:contact].inspect
   end
 end
