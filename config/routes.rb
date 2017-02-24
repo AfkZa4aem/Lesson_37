@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'static_pages/terms'
+
+  get 'static_pages/about'
+
   get 'home/index'
 
   resource :contacts, only: [:new, :create], path_names: { :new => '' }
