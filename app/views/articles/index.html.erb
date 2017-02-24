@@ -7,7 +7,8 @@
   </p>
   <p>
     <%= link_to "Show", article_path(art) %> | 
-    <%= link_to "Edit", edit_article_path(art) %>
+    <%= link_to "Edit", edit_article_path(art) %> | 
+    <%= link_to "Delete", art, method: :delete, data: {confirm: "You sure?"} %>
   </p>
   <hr>
 <% end %>
