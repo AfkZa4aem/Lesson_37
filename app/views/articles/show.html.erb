@@ -4,11 +4,11 @@
 
 <h3>Comments:</h3>
 <% @article.comments.each do |comm| %>
+  <i>
+    <%= comm.author %> said:
+  </i>
   <p>
-    Author: <%= comm.author %>
-  </p>
-  <p>
-    Comment:<%= comm.body %>
+    <%= comm.body %>
   </p>
   <hr>
 <% end %>
