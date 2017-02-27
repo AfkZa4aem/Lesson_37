@@ -2,10 +2,21 @@
 
 <p><%= @article.text %></p>
 
+<h3>Comments:</h3>
+<% @article.comments.each do |comm| %>
+  <p>
+    Author: <%= comm.author %>
+  </p>
+  <p>
+    Comment:<%= comm.body %>
+  </p>
+  <hr>
+<% end %>
+
 <%= link_to 'Back', articles_url %> | 
 <%= link_to 'Edit', edit_article_url %>
 
-<h2>Add comment:</h2>
+<h3>Add comment:</h3>
 
 <p>
   <%= form_for([@article, @article.comments.build]) do |f| %>
