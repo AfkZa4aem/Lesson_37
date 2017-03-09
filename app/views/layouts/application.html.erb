@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <link data-require="bootstrap@3.3.7" data-semver="3.3.7" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
     <script data-require="bootstrap@3.3.7" data-semver="3.3.7" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'default', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'default', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 
@@ -27,18 +27,26 @@
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-          <% if user_signed_in? %>
-            <p class="navbar-text">
-              Hello, <%= current_user.username %> 
-            </p>
-            <p class="navbar-text">
-              <%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
-            </p>
-          <% else %>
-            <p class="navbar-text">
-              <%= link_to 'Sign In', new_user_session_path %>
-            </p>
-          <% end %>
+          <ul class="nav navbar-nav">              
+            <li><%= link_to 'Articles', articles_url %></li>
+            <li><%= link_to 'New', new_article_url %></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+              <% if user_signed_in? %>
+                <p class="navbar-text">
+                  Hello, <%= current_user.username %> 
+                </p>
+                <p class="navbar-text">
+                  <%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
+                </p>
+              <% else %>
+                <p class="navbar-text">
+                  <%= link_to 'Sign In', new_user_session_path %>
+                </p>
+              <% end %>
+            </li>
+          </ul>
         </div>
 
       </div>
