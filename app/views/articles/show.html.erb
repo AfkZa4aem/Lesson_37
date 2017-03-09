@@ -1,34 +1,41 @@
-<h1><%= @article.title %></h1>
+<div class="row">
+  <h1><%= @article.title %></h1>
 
-<p><%= @article.text %></p>
+  <p><%= @article.text %></p>
 
-<h3>Comments:</h3>
-<% @article.comments.each do |comm| %>
-  <i>
-    <%= comm.author %> said:
-  </i>
-  <p>
-    <%= comm.body %>
-  </p>
-  <hr>
-<% end %>
-
-<%= link_to 'Back', articles_url %> | 
-<%= link_to 'Edit', edit_article_url %>
-
-<h3>Add comment:</h3>
-
-<p>
-  <%= form_for([@article, @article.comments.build]) do |f| %>
-  <p>
-    <b><%= current_user.username %>:</b>
-  </p>
-  <p>
-    <%= f.label :body %><br/ >
-    <%= f.text_area :body %>
-  </p>
-  <p>
-    <%= f.submit %>
-  </p>
+  <h3>Comments:</h3>
+  <% @article.comments.each do |comm| %>
+    <i>
+      <%= comm.author %> said:
+    </i>
+    <p>
+      <%= comm.body %>
+    </p>
+    <hr>
   <% end %>
-</p>
+
+  <button class="btn btn-default" type="submit">
+    <%= link_to 'Back', articles_url %>
+  </button>
+  <button class="btn btn-default" type="submit"> 
+    <%= link_to 'Edit', edit_article_url %>
+  </button>
+  <h3>Add comment:</h3>
+
+  <p>
+    <%= form_for([@article, @article.comments.build]) do |f| %>
+    <p>
+      <i>Author:</i> <%= current_user.username %>
+    </p>
+    <p>
+      <%= f.label :body %><br/ >
+      <%= f.text_area :body %>
+    </p>
+    <p>
+      <button class="btn btn-default" type="submit">
+        <%= f.submit %>
+      </button>
+    </p>
+    <% end %>
+  </p>
+</div>
