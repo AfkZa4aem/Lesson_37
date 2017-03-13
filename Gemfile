@@ -1,4 +1,4 @@
-source 'https://rubygems.org'
+ source 'https://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -47,6 +47,7 @@ group :development, :test do
   gem 'shoulda-matchers', '2.7.0'
   gem "rspec-rails", "~> 2.4"
   gem 'capybara'
+  gem 'factory_girl_rails', '~> 4.0'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
