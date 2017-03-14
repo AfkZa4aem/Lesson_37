@@ -20,4 +20,15 @@ describe Article do
 
     end
   end
+
+  describe "#last_comment" do
+    it "returns the last comment" do
+      # create article with comments
+      article = create(:article_with_comments)
+
+      # assert
+      expect(article.last_comment.body).to eq "comment body 3"
+    end
+  end
+
 end
