@@ -3,6 +3,8 @@ class Article < ActiveRecord::Base
 
   validates :title, presence: true
   validates :text, presence: true
+  validates :title, length: { maximum: 140 }
+  validates :text, length: { maximum: 4000 }
 
   def subject
     title
