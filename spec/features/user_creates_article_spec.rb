@@ -7,15 +7,13 @@ feature "Article creation" do
 
   scenario "allows user to visit new article page" do
     visit new_article_path
-
     expect(page).to have_content 'New Article'
   end
 
-  scenario 'allows suer to create new article' do
-    visit new_article_path
-    fill_in :article_title, with: 'semple title'
-    fill_in :article_text, with: 'lorem ipsum'
-    click_button 'Save Article'
+  scenario 'allows user to create new article' do
+    new_article
     expect(page).to have_content 'Comments'
   end
+
+
 end
